@@ -44,7 +44,6 @@ namespace Manager
 
         void SetPosition()
         {
-            Debug.Log(stageDimensions);
             player.transform.position = new Vector3(0, -stageDimensions.y + 1.5f, 0);
             defense.transform.position = new Vector3(-stageDimensions.x + 7f, -stageDimensions.y + 5f, 0);
         }

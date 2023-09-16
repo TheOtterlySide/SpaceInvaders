@@ -10,9 +10,11 @@ namespace Manager
         [Header("Entities")]
         [SerializeField] private GameObject player;
 
+        [SerializeField] private GameObject defense;
+        
         [SerializeField] private Camera mainCamera;
 
-        [Header("Playfield")]
+        [Header("Play Field")]
 
         #region Playfield
 
@@ -28,6 +30,8 @@ namespace Manager
         // Start is called before the first frame update
         void Start()
         {
+            stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
+            
             SetupWalls();
             SetPosition();
             StartGame();
@@ -40,7 +44,9 @@ namespace Manager
 
         void SetPosition()
         {
-            
+            Debug.Log(stageDimensions);
+            player.transform.position = new Vector3(0, -stageDimensions.y + 1.5f, 0);
+            defense.transform.position = new Vector3(-stageDimensions.x + 7f, -stageDimensions.y + 5f, 0);
         }
 
         void StartGame()
@@ -50,8 +56,6 @@ namespace Manager
 
         void SetupWalls()
         {
-            stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
-
             wallLeft.transform.position = new Vector3(-stageDimensions.x - 0.5f, 0, 0);
             wallRight.transform.position = new Vector3(stageDimensions.x + 0.5f, 0, 0);
             wallUp.transform.position = new Vector3(0, stageDimensions.y + 0.5f, 0);

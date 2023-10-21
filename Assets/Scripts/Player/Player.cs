@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float playerPosX;
     [SerializeField] private float playerPosY;
     [SerializeField] private Vector2 playerPos;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPos;
 
     private PlayerControls _controls;
     [SerializeField]private float lerpSpeed;
@@ -32,16 +34,23 @@ public class Player : MonoBehaviour
             playerPos.x = moving.ReadValue<float>();
         };
 
+        _controls.Player.Fire.performed += _ => Fire();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         UpdatePosition();
+
     }
 
     void UpdatePosition()
     {
         _rb.velocity = Vector2.Lerp(_rb.velocity, playerPos * speed, lerpSpeed * Time.deltaTime);
+    }
+
+    void Fire()
+    {
+        Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
     }
 }

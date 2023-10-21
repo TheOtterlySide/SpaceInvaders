@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.name.Contains("Enemy"))
         {
-            Destroy(transform.gameObject);
+            Destroy(gameObject);
         }
     }
 }

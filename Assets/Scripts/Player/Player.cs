@@ -1,24 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int life;
+    [Header("Position")]
 
-    [SerializeField] private float speed;
+    #region Position
 
-    [SerializeField] private float power;
-    [SerializeField] private float playerPosX;
+    [SerializeField]
+    private float playerPosX;
+
     [SerializeField] private float playerPosY;
     [SerializeField] private Vector2 playerPos;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float speed;
+    [SerializeField] private float lerpSpeed;
+
+    #endregion
+
+    [Header("Bullet")]
+
+    #region Bullet
+
+    [SerializeField]
+    private GameObject bulletPrefab;
+
     [SerializeField] private GameObject bulletPos;
 
-    private PlayerControls _controls;
-    [SerializeField]private float lerpSpeed;
+    #endregion
 
+    [Header("Life & Damage")]
+
+    #region Life&Damage
+
+    [SerializeField] public int playerLife;
+
+    public bool playerAlive;
+    [SerializeField] private float power;
+
+    #endregion
+
+    private PlayerControls _controls;
     private Rigidbody2D _rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +53,8 @@ public class Player : MonoBehaviour
         playerPos = new Vector2(playerPosX, playerPosY);
         _controls = new PlayerControls();
         _controls.Enable();
-
-        _controls.Player.Move.performed += moving =>
-        {
-            playerPos.x = moving.ReadValue<float>();
-        };
+        playerAlive = true;
+        _controls.Player.Move.performed += moving => { playerPos.x = moving.ReadValue<float>(); };
 
         _controls.Player.Fire.performed += _ => Fire();
     }
@@ -41,7 +63,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         UpdatePosition();
-
     }
 
     void UpdatePosition()
@@ -52,5 +73,21 @@ public class Player : MonoBehaviour
     void Fire()
     {
         Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
+    }
+
+    void LifeHandling()
+    {
+        playerLife--;
+
+        if (playerLife <= 0)
+        {
+            playerLife = 0;
+            //GameOver
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        LifeHandling();
     }
 }

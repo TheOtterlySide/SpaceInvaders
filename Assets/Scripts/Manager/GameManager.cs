@@ -8,7 +8,7 @@ namespace Manager
         [SerializeField] private bool gameRunning;
         
         [Header("Entities")]
-        [SerializeField] private GameObject player;
+        [SerializeField] private Player player;
 
         [SerializeField] private GameObject defense;
         
@@ -25,6 +25,15 @@ namespace Manager
             private Vector3 stageDimensions;
 
         #endregion
+
+        [Header("Play Field")]
+
+        #region UI
+
+        [SerializeField] private GameObject playerLife1;
+        [SerializeField] private GameObject playerLife2;
+        [SerializeField] private GameObject playerLife3;
+        #endregion
         
         
         // Start is called before the first frame update
@@ -40,6 +49,7 @@ namespace Manager
         // Update is called once per frame
         void Update()
         {
+           
         }
 
         void SetPosition()
@@ -59,6 +69,36 @@ namespace Manager
             wallRight.transform.position = new Vector3(stageDimensions.x + 0.5f, 0, 0);
             wallUp.transform.position = new Vector3(0, stageDimensions.y + 0.5f, 0);
             wallDown.transform.position = new Vector3(0, -stageDimensions.y - 0.5f, 0);
+        }
+
+        bool CheckPlayerStatus()
+        {
+            return player.playerAlive;
+        }
+        void UpdateUi()
+        {
+            switch (player.playerLife)
+            {
+                case 3:
+                    playerLife3.SetActive(false);
+                    break;
+                case 2:
+                    playerLife2.SetActive(false);
+                    break;
+                case 1:
+                    playerLife1.SetActive(false);
+                    break;
+                case 0:
+                    GameOver();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        void GameOver()
+        {
+            
         }
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int points;
+    public Sprite[] sprite;
+    public int rowCount;
     void Start()
     {
         

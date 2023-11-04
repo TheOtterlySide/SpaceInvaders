@@ -1662,10 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 5
-  sprite:
-  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  sprite: {fileID: 0}
   rowCount: 0
 --- !u!1 &1150887567
 GameObject:
@@ -1770,7 +1767,7 @@ Transform:
   m_GameObject: {fileID: 1221676622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 1, z: 0}
+  m_LocalPosition: {x: -10, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1795,9 +1792,11 @@ MonoBehaviour:
   - {fileID: 6679762351366442301, guid: bf7c5ec4e3c044c378a6fa3bf408bd0a, type: 3}
   - {fileID: 6679762351366442301, guid: d83e35245a2ab4b21bbf65640a2cc7ed, type: 3}
   - {fileID: 6679762351366442301, guid: 946d279a35c7e47689650ef7de87a86b, type: 3}
-  xSpacing: 1
+  xSpacing: 2
   ySpacing: 1
   spawnStartPoint: {fileID: 1221676623}
+  speed: 2
+  lerpspeed: 1
 --- !u!1 &1547598947
 GameObject:
   m_ObjectHideFlags: 0

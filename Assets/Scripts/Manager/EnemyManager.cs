@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Manager
@@ -11,7 +12,7 @@ namespace Manager
         #region Mobs
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject enemyPrefab_Bonus;
-    
+        private GameObject swarm;    
         #endregion
 
         [Header("Grid")]
@@ -28,30 +29,44 @@ namespace Manager
         private int rowIndex;
 
         #endregion
+        
+        [Header("Movement")]
+
+        #region Movement
+        
+        [SerializeField] private float speed;
+        [SerializeField] private float lerpspeed;
+        private bool isFacingLeft;
+        private List<GameObject> aliens = new List<GameObject>();
+        private int rowCount;
+        private float maxX;
+        private float xIncrement;
+        private Vector2 currentX;
+
+        #endregion
         void Start()
         {
+            swarm = new GameObject { name = "Swarm" };
+
+            rowIndex = 0;
             BuildGrid();
-            //SpawnMobs();
+            
+            maxX = minX + 2f * xSpacing * columnCount;
+            currentX.x = minX;
         }
 
         // Update is called once per frame
         void Update()
         {
+            Move();
+        }
         
-        }
-
-        void SpawnMobs()
-        {
-        }
 
         void BuildGrid()
         {
             minX = spawnStartPoint.position.x;
 
-            GameObject swarm = new GameObject { name = "Swarm" };
             Vector2 currentPos = spawnStartPoint.position;
-
-            rowIndex = 0;
             foreach (var enemyType in  enemies)
             {
                 var invaderName = enemyType.name.Trim();
@@ -59,11 +74,12 @@ namespace Manager
                 {
                     for (int j = 0; j < columnCount; j++)
                     {
-                        var invader = new GameObject() { name = invaderName };
-                        invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite[0]; //TODO Sprites richtig zuordnen aufpassen!
+                        var invader = (GameObject)Instantiate(enemyPrefab, transform.position, transform.rotation); 
+                        invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite;
                         invader.transform.position = currentPos;
                         invader.transform.SetParent(swarm.transform);
-
+                        aliens.Add(invader);
+                        
                         currentPos.x += xSpacing;
                     }
 
@@ -72,6 +88,34 @@ namespace Manager
                     rowIndex++;
                 }
             }
+        }
+
+        void Move()
+        {
+            xIncrement = speed * Time.deltaTime;
+            if (!isFacingLeft)
+            {
+                currentX.x += xIncrement;
+                if (currentX.x < maxX)
+                {
+                    foreach (var alienGO in aliens)
+                    {
+                        var _rb = alienGO.GetComponent<Rigidbody2D>();
+                        _rb.velocity = Vector2.Lerp(_rb.velocity, currentX * speed, lerpspeed * Time.deltaTime);
+                    }
+                    
+                }
+                else
+                {
+                    changeDirection();
+                }
+            }
+        }
+
+        void changeDirection()
+        {
+            isFacingLeft = !isFacingLeft;
+            swarm.transform.Translate(swarm.transform.position.x, swarm.transform.position.y - ySpacing, swarm.transform.position.z );
         }
     }
 }

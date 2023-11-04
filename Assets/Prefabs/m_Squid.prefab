@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 700873367775112634}
   - component: {fileID: 6679762351366442301}
+  - component: {fileID: -6457488657757590798}
   m_Layer: 0
-  m_Name: m_Alien 2
+  m_Name: m_Squid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,9 +47,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 3
-  sprite:
-  - {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
+  sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   rowCount: 3
+--- !u!50 &-6457488657757590798
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222185827802612240}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 2
 --- !u!1 &3442209437469691764
 GameObject:
   m_ObjectHideFlags: 0

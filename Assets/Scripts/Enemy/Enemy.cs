@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,9 +11,10 @@ public class Enemy : MonoBehaviour
     public Sprite sprite;
     public int rowCount;
     
+    
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -22,6 +25,18 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(gameObject);
+        //gameObject.SetActive(false);
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            transform.parent.GetComponent<EnemyManager>().CustomCollisionEnter(other);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        transform.parent.GetComponent<EnemyManager>().CustomCollisionExit(other);
     }
 }

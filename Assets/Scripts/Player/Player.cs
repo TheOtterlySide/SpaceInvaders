@@ -101,7 +101,6 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            Debug.Log("Trigger");
             _rb.velocity = Vector2.zero;
         }
     }

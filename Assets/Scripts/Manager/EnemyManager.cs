@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Manager
@@ -10,32 +12,45 @@ namespace Manager
         [Header("Mobs")]
 
         #region Mobs
-        [SerializeField] private GameObject enemyPrefab;
-        [SerializeField] private GameObject enemyPrefab_Bonus;
-        private GameObject swarm;    
+
+        [SerializeField]
+        private GameObject enemyPrefab;
+
+        [SerializeField] 
+        private GameObject enemyPrefab_Bonus;
+
         #endregion
 
         [Header("Grid")]
 
         #region Grid
 
-        [SerializeField] private int columnCount;
-        [SerializeField] private Enemy[] enemies;
-        [SerializeField] private int xSpacing;
-        [SerializeField] private int ySpacing;
+        [SerializeField]
+        private int columnCount;
 
-        [SerializeField] private Transform spawnStartPoint;
+        [SerializeField] 
+        private Enemy[] enemies;
+        [SerializeField] 
+        private int xSpacing;
+        [SerializeField] 
+        private int ySpacing;
+        [SerializeField] 
+        private Transform spawnStartPoint;
         private float minX;
         private int rowIndex;
 
         #endregion
-        
+
         [Header("Movement")]
 
         #region Movement
-        
-        [SerializeField] private float speed;
-        [SerializeField] private float lerpspeed;
+
+        [SerializeField]
+        private float speed;
+
+        private bool isfirstTriggered;
+        [SerializeField] 
+        private float lerpspeed;
         private bool isFacingRight;
         private List<GameObject> aliens = new List<GameObject>();
         private int rowCount;
@@ -44,14 +59,13 @@ namespace Manager
         private Vector2 currentX;
 
         #endregion
+
         void Start()
         {
-            swarm = new GameObject { name = "Swarm" };
-
             rowIndex = 0;
             minX = spawnStartPoint.position.x;
             BuildGrid();
-            
+
             maxX = minX + 2f * xSpacing * columnCount;
             currentX.x = minX;
         }
@@ -61,25 +75,27 @@ namespace Manager
         {
             Move();
         }
-        
+
 
         void BuildGrid()
         {
             Vector2 currentPos = spawnStartPoint.position;
-            Debug.Log(minX + " " + maxX);
-            foreach (var enemyType in  enemies)
+            currentPos.y = currentPos.y - 3;
+
+            foreach (var enemyType in enemies)
             {
                 var invaderName = enemyType.name.Trim();
                 for (int i = 0, len = enemyType.rowCount; i < len; i++)
                 {
                     for (int j = 0; j < columnCount; j++)
                     {
-                        var invader = (GameObject)Instantiate(enemyPrefab, transform.position, transform.rotation); 
+                        var invader = (GameObject)Instantiate(enemyPrefab, transform.position, transform.rotation);
                         invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite;
+                        invader.name = j.ToString();
                         invader.transform.position = currentPos;
-                        invader.transform.SetParent(swarm.transform);
+                        invader.transform.SetParent(gameObject.transform);
                         aliens.Add(invader);
-                        
+
                         currentPos.x += xSpacing;
                     }
 
@@ -93,39 +109,47 @@ namespace Manager
         void Move()
         {
             xIncrement = speed * Time.deltaTime;
+            var direction = Vector2.left;
             if (!isFacingRight)
             {
                 //Mobs move to the left
                 currentX.x += xIncrement;
+                direction = Vector2.left;
+            }
+            else
+            {
+                direction = Vector2.right;
+                currentX.x -= xIncrement;
+            }
 
-                if (currentX.x < maxX)
-                {
-                    foreach (var alienGO in aliens)
-                    {
-                        var _rb = alienGO.GetComponent<Rigidbody2D>();
-                        _rb.velocity = Vector2.Lerp(_rb.velocity, currentX * speed, lerpspeed * Time.deltaTime);
-                    }
-                    
-                }
-                else
+            foreach (var alienGO in aliens)
+            {
+                var _rb = alienGO.GetComponent<Rigidbody2D>();
+                _rb.velocity = Vector2.Lerp(_rb.velocity, direction, lerpspeed * Time.deltaTime);
+            }
+        }
+
+        public void changeDirection()
+        {
+            isFacingRight = !isFacingRight;
+        }
+
+        public void CustomCollisionEnter(Collision2D other)
+        {
+            if (isfirstTriggered == false)
+            {
+                isfirstTriggered = true;
+
+                if (other.gameObject.CompareTag("Wall"))
                 {
                     changeDirection();
                 }
             }
-            else
-            {
-                //Mobs move to the right
-                currentX.x -= xIncrement;
-                //if (currentX.x )
-            }
         }
 
-        void changeDirection()
+        public void CustomCollisionExit(Collision2D other)
         {
-            isFacingRight = !isFacingRight;
-            swarm.transform.Translate(swarm.transform.position.x, 
-                swarm.transform.position.y - ySpacing, 
-                swarm.transform.position.z );
+            isfirstTriggered = false;
         }
     }
 }

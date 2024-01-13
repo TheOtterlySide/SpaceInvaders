@@ -36,7 +36,7 @@ namespace Manager
         
         [SerializeField] private float speed;
         [SerializeField] private float lerpspeed;
-        private bool isFacingLeft;
+        private bool isFacingRight;
         private List<GameObject> aliens = new List<GameObject>();
         private int rowCount;
         private float maxX;
@@ -49,6 +49,7 @@ namespace Manager
             swarm = new GameObject { name = "Swarm" };
 
             rowIndex = 0;
+            minX = spawnStartPoint.position.x;
             BuildGrid();
             
             maxX = minX + 2f * xSpacing * columnCount;
@@ -64,9 +65,8 @@ namespace Manager
 
         void BuildGrid()
         {
-            minX = spawnStartPoint.position.x;
-
             Vector2 currentPos = spawnStartPoint.position;
+            Debug.Log(minX + " " + maxX);
             foreach (var enemyType in  enemies)
             {
                 var invaderName = enemyType.name.Trim();
@@ -93,9 +93,11 @@ namespace Manager
         void Move()
         {
             xIncrement = speed * Time.deltaTime;
-            if (!isFacingLeft)
+            if (!isFacingRight)
             {
+                //Mobs move to the left
                 currentX.x += xIncrement;
+
                 if (currentX.x < maxX)
                 {
                     foreach (var alienGO in aliens)
@@ -110,12 +112,20 @@ namespace Manager
                     changeDirection();
                 }
             }
+            else
+            {
+                //Mobs move to the right
+                currentX.x -= xIncrement;
+                //if (currentX.x )
+            }
         }
 
         void changeDirection()
         {
-            isFacingLeft = !isFacingLeft;
-            swarm.transform.Translate(swarm.transform.position.x, swarm.transform.position.y - ySpacing, swarm.transform.position.z );
+            isFacingRight = !isFacingRight;
+            swarm.transform.Translate(swarm.transform.position.x, 
+                swarm.transform.position.y - ySpacing, 
+                swarm.transform.position.z );
         }
     }
 }

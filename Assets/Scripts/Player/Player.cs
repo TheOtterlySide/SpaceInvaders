@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -81,13 +82,27 @@ public class Player : MonoBehaviour
 
         if (playerLife <= 0)
         {
-            playerLife = 0;
             //GameOver
+            playerLife = 0;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        LifeHandling();
+        if (col.CompareTag("Bullet"))
+        {
+            LifeHandling();
+        }
+
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Trigger");
+            _rb.velocity = Vector2.zero;
+        }
     }
 }

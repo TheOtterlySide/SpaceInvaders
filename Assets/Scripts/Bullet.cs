@@ -32,9 +32,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name.Contains("Enemy"))
+        if (other.tag.Contains("Enemy"))
         {
             Destroy(gameObject);
         }
     }
+
+
 }

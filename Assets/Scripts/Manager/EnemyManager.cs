@@ -19,6 +19,10 @@ namespace Manager
         [SerializeField] 
         private GameObject enemyPrefab_Bonus;
 
+        [SerializeField] private int mobsKilled1;
+        [SerializeField] private int speedAddition1;
+        [SerializeField] private int mobsKilled2;
+        [SerializeField] private int speedAddition2;
         #endregion
 
         [Header("Grid")]
@@ -130,7 +134,7 @@ namespace Manager
             isFacingRight = !isFacingRight;
             foreach (var alienGO in aliens)
             {
-                alienGO.transform.Translate(0, -1, 0); 
+                alienGO.transform.Translate(0, -1, 0);
             }
         }
 
@@ -150,6 +154,21 @@ namespace Manager
         public void CustomCollisionExit(Collision2D other)
         {
             isfirstTriggered = false;
+        }
+
+        public void DeleteAlienFromList(GameObject alien)
+        {
+            aliens.Remove(alien);
+            
+            if (aliens.Count == mobsKilled1)
+            {
+                speed += speedAddition1;
+            }
+
+            if (aliens.Count == mobsKilled2)
+            {
+                speed += speedAddition2;
+            }
         }
     }
 }

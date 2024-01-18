@@ -25,7 +25,12 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //gameObject.SetActive(false);
+        if (col.tag.Contains("Bullet"))
+        {
+            transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
+            Destroy(gameObject);
+        }
+        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

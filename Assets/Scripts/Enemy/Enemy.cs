@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     public int points;
     public Sprite sprite;
     public int rowCount;
+    private Rigidbody2D rb;
     
-    
-    void Start()
+    void Awake()
     {
-       
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (other.gameObject.CompareTag("Wall"))
         {
             transform.parent.GetComponent<EnemyManager>().CustomCollisionEnter(other);

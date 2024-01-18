@@ -50,7 +50,6 @@ MonoBehaviour:
   points: 7
   sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   rowCount: 2
-  em: {fileID: 0}
 --- !u!50 &4901872001361759992
 Rigidbody2D:
   serializedVersion: 4
@@ -66,7 +65,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

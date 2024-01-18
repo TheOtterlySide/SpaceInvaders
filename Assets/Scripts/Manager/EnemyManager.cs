@@ -49,8 +49,6 @@ namespace Manager
         private float speed;
 
         private bool isfirstTriggered;
-        [SerializeField] 
-        private float lerpspeed;
         private bool isFacingRight;
         private List<GameObject> aliens = new List<GameObject>();
         private int rowCount;
@@ -70,13 +68,13 @@ namespace Manager
             currentX.x = minX;
         }
 
+
         // Update is called once per frame
         void Update()
         {
             Move();
         }
-
-
+        
         void BuildGrid()
         {
             Vector2 currentPos = spawnStartPoint.position;
@@ -108,30 +106,32 @@ namespace Manager
 
         void Move()
         {
-            xIncrement = speed * Time.deltaTime;
             var direction = Vector2.left;
+            
             if (!isFacingRight)
             {
                 //Mobs move to the left
-                currentX.x += xIncrement;
                 direction = Vector2.left;
             }
             else
             {
                 direction = Vector2.right;
-                currentX.x -= xIncrement;
             }
 
             foreach (var alienGO in aliens)
             {
                 var _rb = alienGO.GetComponent<Rigidbody2D>();
-                _rb.velocity = Vector2.Lerp(_rb.velocity, direction, lerpspeed * Time.deltaTime);
+                _rb.velocity = direction * speed;
             }
         }
 
         public void changeDirection()
         {
             isFacingRight = !isFacingRight;
+            foreach (var alienGO in aliens)
+            {
+                alienGO.transform.Translate(0, -1, 0); 
+            }
         }
 
         public void CustomCollisionEnter(Collision2D other)

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 namespace Manager
 {
@@ -19,10 +21,20 @@ namespace Manager
         [SerializeField] 
         private GameObject enemyPrefab_Bonus;
 
-        [SerializeField] private int mobsKilled1;
-        [SerializeField] private int speedAddition1;
-        [SerializeField] private int mobsKilled2;
-        [SerializeField] private int speedAddition2;
+        [SerializeField] 
+        private int mobsKilled1;
+        [SerializeField] 
+        private int speedAddition1;
+        [SerializeField] 
+        private int mobsKilled2;
+        [SerializeField] 
+        private int speedAddition2;
+
+        [SerializeField] 
+        private float shootTimer;
+
+        [SerializeField] 
+        private float timeCooldown = 5;
         #endregion
 
         [Header("Grid")]
@@ -77,8 +89,20 @@ namespace Manager
         void Update()
         {
             Move();
+            EnemyFire();
         }
-        
+
+        private void EnemyFire()
+        {
+            shootTimer += Time.deltaTime;
+
+            if (shootTimer >= timeCooldown)
+            {
+                shootTimer -= timeCooldown;
+                Fire();
+            }
+        }
+
         void BuildGrid()
         {
             Vector2 currentPos = spawnStartPoint.position;
@@ -169,6 +193,12 @@ namespace Manager
             {
                 speed += speedAddition2;
             }
+        }
+
+        void Fire()
+        {
+            var randomObject = Random.Range(0, aliens.Count);
+            aliens[randomObject].GetComponent<Enemy>().Fire();
         }
     }
 }

@@ -11,7 +11,11 @@ public class Enemy : MonoBehaviour
     public Sprite sprite;
     public int rowCount;
     private Rigidbody2D rb;
-    
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField] 
+    private Vector2 bulletPos;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,7 +29,7 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag.Contains("Bullet"))
+        if (col.tag.Contains("PlayerBullet"))
         {
             transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
             Destroy(gameObject);
@@ -44,5 +48,12 @@ public class Enemy : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         transform.parent.GetComponent<EnemyManager>().CustomCollisionExit(other);
+    }
+    
+    public void Fire()
+    {
+        var position = transform.position;
+        bulletPos = new Vector2(position.x, position.y - 0.5f);
+        Instantiate(bulletPrefab,bulletPos, transform.rotation);
     }
 }

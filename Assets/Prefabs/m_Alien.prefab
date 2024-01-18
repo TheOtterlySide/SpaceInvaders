@@ -50,6 +50,8 @@ MonoBehaviour:
   points: 5
   sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   rowCount: 1
+  bulletPrefab: {fileID: 1972912868476927793, guid: 1e43b8457d8b94bf1b562874b49e010f, type: 3}
+  bulletPos: {x: 0, y: 0}
 --- !u!50 &3481124327490893571
 Rigidbody2D:
   serializedVersion: 4

@@ -1738,6 +1738,8 @@ MonoBehaviour:
   points: 5
   sprite: {fileID: 0}
   rowCount: 0
+  bulletPrefab: {fileID: 0}
+  bulletPos: {x: 0, y: 0}
 --- !u!1 &1150887567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,6 +1868,8 @@ MonoBehaviour:
   speedAddition1: 1
   mobsKilled2: 20
   speedAddition2: 2
+  shootTimer: 0
+  timeCooldown: 2
   columnCount: 11
   enemies:
   - {fileID: 6679762351366442301, guid: bf7c5ec4e3c044c378a6fa3bf408bd0a, type: 3}

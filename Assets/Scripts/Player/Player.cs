@@ -13,10 +13,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float playerPosX;
 
-    [SerializeField] private float playerPosY;
-    [SerializeField] private Vector2 playerPos;
-    [SerializeField] private float speed;
-    [SerializeField] private float lerpSpeed;
+    [SerializeField] 
+    private float playerPosY;
+    [SerializeField] 
+    private Vector2 playerPos;
+    [SerializeField] 
+    private float speed;
+    [SerializeField] 
+    private float lerpSpeed;
 
     #endregion
 
@@ -27,7 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject bulletPrefab;
 
-    [SerializeField] private GameObject bulletPos;
+    [SerializeField] 
+    private GameObject bulletPos;
 
     #endregion
 
@@ -35,10 +40,13 @@ public class Player : MonoBehaviour
 
     #region Life&Damage
 
-    [SerializeField] public int playerLife;
+    [SerializeField] 
+    public int playerLife;
 
     public bool playerAlive;
-    [SerializeField] private float power;
+    
+    [SerializeField] 
+    private float power;
 
     #endregion
 
@@ -89,7 +97,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Bullet"))
+        if (col.CompareTag("EnemyBullet"))
         {
             LifeHandling();
         }

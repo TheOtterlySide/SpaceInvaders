@@ -27,14 +27,23 @@ public class Bullet : MonoBehaviour
 
     void DecideBulletDirection()
     {
-        bulletPos = transform.rotation.y > 0 ? Vector2.down : Vector2.up;
+        bulletPos = gameObject.CompareTag("EnemyBullet") ? Vector2.down : Vector2.up;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name.Contains("Enemy"))
+        if (other.CompareTag("Enemy") && gameObject.CompareTag("PlayerBullet"))
         {
+            //Player shoots Enemy
+            Destroy(gameObject);
+        }
+
+        if (other.CompareTag("Player") && gameObject.CompareTag("EnemyBullet"))
+        {
+            //Enemy shoots player
             Destroy(gameObject);
         }
     }
+
+
 }

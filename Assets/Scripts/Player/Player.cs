@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,10 +13,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float playerPosX;
 
-    [SerializeField] private float playerPosY;
-    [SerializeField] private Vector2 playerPos;
-    [SerializeField] private float speed;
-    [SerializeField] private float lerpSpeed;
+    [SerializeField] 
+    private float playerPosY;
+    [SerializeField] 
+    private Vector2 playerPos;
+    [SerializeField] 
+    private float speed;
+    [SerializeField] 
+    private float lerpSpeed;
 
     #endregion
 
@@ -26,7 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject bulletPrefab;
 
-    [SerializeField] private GameObject bulletPos;
+    [SerializeField] 
+    private GameObject bulletPos;
 
     #endregion
 
@@ -34,10 +40,13 @@ public class Player : MonoBehaviour
 
     #region Life&Damage
 
-    [SerializeField] public int playerLife;
+    [SerializeField] 
+    public int playerLife;
 
     public bool playerAlive;
-    [SerializeField] private float power;
+    
+    [SerializeField] 
+    private float power;
 
     #endregion
 
@@ -81,13 +90,26 @@ public class Player : MonoBehaviour
 
         if (playerLife <= 0)
         {
-            playerLife = 0;
             //GameOver
+            playerLife = 0;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        LifeHandling();
+        if (col.CompareTag("EnemyBullet"))
+        {
+            LifeHandling();
+        }
+
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            _rb.velocity = Vector2.zero;
+        }
     }
 }

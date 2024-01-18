@@ -19,9 +19,6 @@ namespace Manager
         private GameObject enemyPrefab;
 
         [SerializeField] 
-        private GameObject enemyPrefab_Bonus;
-
-        [SerializeField] 
         private int mobsKilled1;
         [SerializeField] 
         private int speedAddition1;
@@ -74,6 +71,25 @@ namespace Manager
 
         #endregion
 
+        [Header("BonusEnemy")]
+
+        #region BonusEnemy
+
+        [SerializeField]
+        private float spawnTimer;
+
+        [SerializeField] 
+        private float spawnCooldown;
+        
+        [SerializeField] 
+        private GameObject enemyPrefab_Bonus;
+        [SerializeField]
+        private GameObject bonusSpawnPoint;
+        [SerializeField] 
+        private float bonusSpeed;
+        
+        #endregion
+
         void Start()
         {
             rowIndex = 0;
@@ -90,9 +106,30 @@ namespace Manager
         {
             Move();
             EnemyFire();
+            SetupBonusEnemy();
         }
 
-        private void EnemyFire()
+        void SetupBonusEnemy()
+        {
+            spawnTimer += Time.deltaTime;
+
+            if (spawnTimer >= spawnCooldown)
+            {
+                spawnTimer -= spawnCooldown;
+                SpawnBonusEnemy();
+            }
+        }
+
+        void SpawnBonusEnemy()
+        {
+            var gameObjectBonus =
+                Instantiate(enemyPrefab_Bonus, bonusSpawnPoint.transform.position, transform.rotation);
+            var rb = gameObjectBonus.GetComponent<Rigidbody2D>();
+            var direction = Vector2.left;
+            rb.velocity = direction * bonusSpeed;
+        }
+
+        void EnemyFire()
         {
             shootTimer += Time.deltaTime;
 

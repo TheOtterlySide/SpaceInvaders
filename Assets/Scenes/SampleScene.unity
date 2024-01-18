@@ -761,6 +761,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568343722}
   m_CullTransparentMesh: 1
+--- !u!1 &599192745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599192746}
+  m_Layer: 0
+  m_Name: BonusSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599192746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599192745}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.3, y: 5.84, z: -0.19458966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1222185827802612240, guid: bf7c5ec4e3c044c378a6fa3bf408bd0a, type: 3}
-  enemyPrefab_Bonus: {fileID: 0}
   mobsKilled1: 40
   speedAddition1: 1
   mobsKilled2: 20
@@ -1879,6 +1909,10 @@ MonoBehaviour:
   ySpacing: 1
   spawnStartPoint: {fileID: 1221676623}
   speed: 1
+  spawnTimer: 0
+  spawnCooldown: 5
+  enemyPrefab_Bonus: {fileID: 1222185827802612240, guid: d6cb5f7b3d5484ce7b31a2744d732beb, type: 3}
+  bonusSpawnPoint: {fileID: 599192745}
 --- !u!61 &1221676625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2289,3 +2323,4 @@ SceneRoots:
   - {fileID: 1074012902}
   - {fileID: 743347635}
   - {fileID: 1747409865}
+  - {fileID: 599192746}

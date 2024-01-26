@@ -786,7 +786,7 @@ Transform:
   m_GameObject: {fileID: 599192745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.3, y: 5.84, z: -0.19458966}
+  m_LocalPosition: {x: 13.36, y: 6.43, z: -0.19458966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1910,9 +1910,11 @@ MonoBehaviour:
   spawnStartPoint: {fileID: 1221676623}
   speed: 1
   spawnTimer: 0
-  spawnCooldown: 5
+  spawnCooldown: 10
   enemyPrefab_Bonus: {fileID: 1222185827802612240, guid: d6cb5f7b3d5484ce7b31a2744d732beb, type: 3}
   bonusSpawnPoint: {fileID: 599192745}
+  bonusSpeed: 7
+  bonusAlive: 0
 --- !u!61 &1221676625
 BoxCollider2D:
   m_ObjectHideFlags: 0

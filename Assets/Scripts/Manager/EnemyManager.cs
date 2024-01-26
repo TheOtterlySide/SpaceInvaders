@@ -87,6 +87,8 @@ namespace Manager
         private GameObject bonusSpawnPoint;
         [SerializeField] 
         private float bonusSpeed;
+
+        public bool bonusAlive;
         
         #endregion
 
@@ -106,7 +108,11 @@ namespace Manager
         {
             Move();
             EnemyFire();
-            SetupBonusEnemy();
+
+            if (!bonusAlive)
+            {
+                SetupBonusEnemy();
+            }
         }
 
         void SetupBonusEnemy()
@@ -122,8 +128,10 @@ namespace Manager
 
         void SpawnBonusEnemy()
         {
+            bonusAlive = true;
             var gameObjectBonus =
                 Instantiate(enemyPrefab_Bonus, bonusSpawnPoint.transform.position, transform.rotation);
+            gameObjectBonus.transform.SetParent(gameObject.transform);
             var rb = gameObjectBonus.GetComponent<Rigidbody2D>();
             var direction = Vector2.left;
             rb.velocity = direction * bonusSpeed;
@@ -190,7 +198,7 @@ namespace Manager
             }
         }
 
-        public void changeDirection()
+        private void changeDirection()
         {
             isFacingRight = !isFacingRight;
             foreach (var alienGO in aliens)

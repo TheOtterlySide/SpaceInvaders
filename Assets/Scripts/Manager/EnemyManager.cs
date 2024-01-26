@@ -19,9 +19,6 @@ namespace Manager
         private GameObject enemyPrefab;
 
         [SerializeField] 
-        private GameObject enemyPrefab_Bonus;
-
-        [SerializeField] 
         private int mobsKilled1;
         [SerializeField] 
         private int speedAddition1;
@@ -74,6 +71,27 @@ namespace Manager
 
         #endregion
 
+        [Header("BonusEnemy")]
+
+        #region BonusEnemy
+
+        [SerializeField]
+        private float spawnTimer;
+
+        [SerializeField] 
+        private float spawnCooldown;
+        
+        [SerializeField] 
+        private GameObject enemyPrefab_Bonus;
+        [SerializeField]
+        private GameObject bonusSpawnPoint;
+        [SerializeField] 
+        private float bonusSpeed;
+
+        public bool bonusAlive;
+        
+        #endregion
+
         void Start()
         {
             rowIndex = 0;
@@ -90,9 +108,36 @@ namespace Manager
         {
             Move();
             EnemyFire();
+
+            if (!bonusAlive)
+            {
+                SetupBonusEnemy();
+            }
         }
 
-        private void EnemyFire()
+        void SetupBonusEnemy()
+        {
+            spawnTimer += Time.deltaTime;
+
+            if (spawnTimer >= spawnCooldown)
+            {
+                spawnTimer -= spawnCooldown;
+                SpawnBonusEnemy();
+            }
+        }
+
+        void SpawnBonusEnemy()
+        {
+            bonusAlive = true;
+            var gameObjectBonus =
+                Instantiate(enemyPrefab_Bonus, bonusSpawnPoint.transform.position, transform.rotation);
+            gameObjectBonus.transform.SetParent(gameObject.transform);
+            var rb = gameObjectBonus.GetComponent<Rigidbody2D>();
+            var direction = Vector2.left;
+            rb.velocity = direction * bonusSpeed;
+        }
+
+        void EnemyFire()
         {
             shootTimer += Time.deltaTime;
 
@@ -153,7 +198,7 @@ namespace Manager
             }
         }
 
-        public void changeDirection()
+        private void changeDirection()
         {
             isFacingRight = !isFacingRight;
             foreach (var alienGO in aliens)

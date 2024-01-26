@@ -8,11 +8,12 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Enemy
+  - Bonus
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bonus
   - Water
   - UI
   - 

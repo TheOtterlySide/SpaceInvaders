@@ -8,8 +8,19 @@ public class Bonus : MonoBehaviour
 {
     [SerializeField] 
     private float deathTime;
-    
-    private float timeAlive;
+
+    [SerializeField] 
+    private int points;
+
+
+    private GameManager _gm;
+    private float _timeAlive;
+
+    private void Start()
+    {
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag.Contains("PlayerBullet"))
@@ -20,9 +31,9 @@ public class Bonus : MonoBehaviour
 
     private void Update()
     {
-        timeAlive += Time.deltaTime;
+        _timeAlive += Time.deltaTime;
 
-        if (timeAlive >= deathTime)
+        if (_timeAlive >= deathTime)
         {
             Death();
         }
@@ -31,6 +42,7 @@ public class Bonus : MonoBehaviour
     private void Death()
     {
         transform.parent.GetComponent<EnemyManager>().bonusAlive = false;
+        _gm.score += points;
         Destroy(gameObject);
     }
 }

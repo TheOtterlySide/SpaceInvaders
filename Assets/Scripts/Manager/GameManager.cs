@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Manager
@@ -33,6 +34,9 @@ namespace Manager
         [SerializeField] private GameObject playerLife1;
         [SerializeField] private GameObject playerLife2;
         [SerializeField] private GameObject playerLife3;
+        public int score;
+        [SerializeField] private int scoreLength;
+        [SerializeField] private TMP_Text highscorePoints;
         #endregion
         
         
@@ -40,7 +44,7 @@ namespace Manager
         void Start()
         {
             stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
-            
+            score = 000000;
             SetupWalls();
             SetPosition();
             StartGame();
@@ -49,7 +53,8 @@ namespace Manager
         // Update is called once per frame
         void Update()
         {
-           
+           UpdateUiLife();
+           UpdateUiScore();
         }
 
         void SetPosition()
@@ -75,7 +80,7 @@ namespace Manager
         {
             return player.playerAlive;
         }
-        void UpdateUi()
+        void UpdateUiLife()
         {
             switch (player.playerLife)
             {
@@ -96,9 +101,15 @@ namespace Manager
             }
         }
 
+        void UpdateUiScore()
+        {
+            string fmt = "000000.##";
+            highscorePoints.text = score.ToString(fmt);
+        }
+
         void GameOver()
         {
-            
+            //Pause Game, Open End Scene, Show Highscores
         }
     }
 }

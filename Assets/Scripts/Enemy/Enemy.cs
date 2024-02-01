@@ -10,15 +10,17 @@ public class Enemy : MonoBehaviour
     public int points;
     public Sprite sprite;
     public int rowCount;
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     [SerializeField]
     private GameObject bulletPrefab;
     [SerializeField] 
     private Vector2 bulletPos;
+    private GameManager _gm;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,13 +34,14 @@ public class Enemy : MonoBehaviour
         if (col.tag.Contains("PlayerBullet"))
         {
             transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
+            _gm.score += points;
             Destroy(gameObject);
         }
         
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (other.gameObject.CompareTag("Wall"))
         {
             transform.parent.GetComponent<EnemyManager>().CustomCollisionEnter(other);

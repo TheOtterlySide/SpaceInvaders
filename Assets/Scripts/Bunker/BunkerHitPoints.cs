@@ -69,7 +69,6 @@ namespace Bunker
             if (col.tag.Contains("Bullet"))
             {
                 hp--;
-                //transform.parent.GetComponent<BunkerManager>().CustomTriggerEnter(gameObject);
                 LifeHandling();
             }
         

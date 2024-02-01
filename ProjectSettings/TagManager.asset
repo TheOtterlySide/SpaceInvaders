@@ -9,6 +9,7 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Bonus
+  - Bunker
   layers:
   - Default
   - TransparentFX

@@ -42,8 +42,18 @@ namespace Manager
         private string fmt = "000000.##";
         #endregion
 
+        #region Manager
         private ScoreManager _scoreManager;
-        
+        #endregion
+
+        [Header("Pause")]
+
+        #region Pause
+
+        [SerializeField]
+        private GameObject PauseMenu;
+
+        #endregion
         // Start is called before the first frame update
         void Start()
         {
@@ -115,6 +125,23 @@ namespace Manager
         {
             //Pause Game, Open End Scene, Show Highscores
             _scoreManager.BuildHighscore();
+        }
+        
+        public void Pause()
+        {
+            if (gameRunning)
+            {
+                Time.timeScale = 0.0f;
+                PauseMenu.SetActive(true);
+                gameRunning = !gameRunning;
+            }
+
+            else
+            {
+                Time.timeScale = 1.0f;
+                PauseMenu.SetActive(false);
+                gameRunning = !gameRunning;
+            }
         }
 
  

@@ -480,9 +480,9 @@ RectTransform:
   - {fileID: 333637746}
   m_Father: {fileID: 743347635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -228.8, y: -33.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &333637745
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Highscore
+  m_text: 0000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ef1f79c129f4467bbc013084f8981f7, type: 2}
   m_sharedMaterial: {fileID: -3813089265508191738, guid: 7ef1f79c129f4467bbc013084f8981f7, type: 2}
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -846,6 +846,10 @@ MonoBehaviour:
   playerLife1: {fileID: 1942731323}
   playerLife2: {fileID: 568343722}
   playerLife3: {fileID: 683545686}
+  score: 0
+  scoreLength: 0
+  highscorePoints: {fileID: 333637747}
+  PauseMenu: {fileID: 0}
 --- !u!1 &420910514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2126,7 @@ MonoBehaviour:
   bulletPos: {fileID: 420910514}
   playerLife: 4
   playerAlive: 1
-  power: 0
+  _gm: {fileID: 419341042}
 --- !u!114 &1032799391
 MonoBehaviour:
   m_ObjectHideFlags: 0

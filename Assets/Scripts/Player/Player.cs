@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -46,12 +47,13 @@ public class Player : MonoBehaviour
     public bool playerAlive;
     
     [SerializeField] 
-    private float power;
+    private GameManager _gm;
 
     #endregion
 
     private PlayerControls _controls;
     private Rigidbody2D _rb;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
         _controls.Enable();
         playerAlive = true;
         _controls.Player.Move.performed += moving => { playerPos.x = moving.ReadValue<float>(); };
-
+        _controls.Player.Pause.performed += _ => Pause();
         _controls.Player.Fire.performed += _ => Fire();
     }
 
@@ -72,6 +74,11 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         UpdatePosition();
+    }
+
+    void Pause()
+    {
+        _gm.Pause();
     }
 
     void UpdatePosition()

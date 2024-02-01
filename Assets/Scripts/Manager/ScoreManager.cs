@@ -16,7 +16,7 @@ namespace Manager
             var userHighscore = score;
 
             var highscoreList = GetHighscoreList();
-            CheckHighscoreList(highscoreList, userHighscore, userName);
+            highscoreList = CheckHighscoreList(highscoreList, userHighscore, userName);
             SaveHighscore(highscoreList);
         }
 

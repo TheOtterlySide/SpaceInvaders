@@ -5,7 +5,6 @@ namespace Bunker
 {
     public class BunkerHitPoints : MonoBehaviour
     {
-        private int life = 3;
 
         [SerializeField] 
         private SpriteLibrary lib;
@@ -14,6 +13,12 @@ namespace Bunker
         
         [SerializeField] 
         private SpriteResolver mySpriteResolver;
+
+        [SerializeField] 
+        private int hp;
+        
+        
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -31,7 +36,7 @@ namespace Bunker
         private void LifeHandling()
         {
             
-            switch (life)
+            switch (hp)
             {
                 case 3:
                     mySpriteResolver.SetCategoryAndLabel("FULL HEALTH", gameObject.name);
@@ -61,8 +66,9 @@ namespace Bunker
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.tag.Contains("PlayerBullet"))
+            if (col.tag.Contains("Bullet"))
             {
+                hp--;
                 //transform.parent.GetComponent<BunkerManager>().CustomTriggerEnter(gameObject);
                 LifeHandling();
             }

@@ -43,6 +43,11 @@ public class Bullet : MonoBehaviour
             //Enemy shoots player
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Bunker"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 

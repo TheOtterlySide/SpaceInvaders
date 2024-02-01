@@ -8,7 +8,7 @@ namespace Manager
     public class GameManager : MonoBehaviour
     {
         [Header("GameStates")] 
-        [SerializeField] private bool gameRunning;
+        public bool gameRunning;
         
         [Header("Entities")]
         [SerializeField] private Player player;
@@ -58,6 +58,7 @@ namespace Manager
         void Start()
         {
             _scoreManager = new ScoreManager();
+            PauseMenu.SetActive(false);
             stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
             score = 000000;
             SetupWalls();

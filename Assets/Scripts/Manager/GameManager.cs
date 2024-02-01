@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
 
@@ -37,12 +39,15 @@ namespace Manager
         public int score;
         [SerializeField] private int scoreLength;
         [SerializeField] private TMP_Text highscorePoints;
+        private string fmt = "000000.##";
         #endregion
-        
+
+        private ScoreManager _scoreManager;
         
         // Start is called before the first frame update
         void Start()
         {
+            _scoreManager = new ScoreManager();
             stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
             score = 000000;
             SetupWalls();
@@ -103,13 +108,15 @@ namespace Manager
 
         void UpdateUiScore()
         {
-            string fmt = "000000.##";
             highscorePoints.text = score.ToString(fmt);
         }
 
         void GameOver()
         {
             //Pause Game, Open End Scene, Show Highscores
+            _scoreManager.BuildHighscore();
         }
+
+ 
     }
 }

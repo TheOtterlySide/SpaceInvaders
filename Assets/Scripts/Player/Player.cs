@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
         {
             //GameOver
             playerLife = 0;
+            playerAlive = false;
         }
     }
 
@@ -101,8 +102,6 @@ public class Player : MonoBehaviour
         {
             LifeHandling();
         }
-
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other)

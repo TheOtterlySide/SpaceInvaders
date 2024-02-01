@@ -88,7 +88,10 @@ public class Player : MonoBehaviour
 
     void Fire()
     {
-        Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
+        if (_gm.gameRunning == true)
+        {
+            Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
+        }
     }
 
     void LifeHandling()

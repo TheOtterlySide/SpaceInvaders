@@ -7,16 +7,16 @@ namespace Manager
 {
     public class ScoreManager
     {
-        public int score;
+        private int highscore;
         private string fmt = "000000.##";
         private int maxHighscoreCount = 10;
-        public void BuildHighscore()
+        public void BuildHighscore(int score)
         {
             var userName = "Tom";
-            var userHighscore = score;
+            highscore = score;
 
             var highscoreList = GetHighscoreList();
-            highscoreList = CheckHighscoreList(highscoreList, userHighscore, userName);
+            highscoreList = CheckHighscoreList(highscoreList, highscore, userName);
             SaveHighscore(highscoreList);
         }
 

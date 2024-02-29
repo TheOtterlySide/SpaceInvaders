@@ -114,9 +114,8 @@ namespace Manager
             highscorePoints.text = score.ToString(fmt);
         }
 
-        void GameOver()
+        public void GameOver()
         {
-            //Pause Game, Open End Scene, Show Highscores
             Time.timeScale = 0.0f;
             sceneManager.GameOver(score);
         }

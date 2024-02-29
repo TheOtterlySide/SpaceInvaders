@@ -31,20 +31,25 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag.Contains("PlayerBullet"))
+        if (col.gameObject.CompareTag("PlayerBullet"))
         {
             transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
             _gm.score += points;
             Destroy(gameObject);
         }
-        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        
         if (other.gameObject.CompareTag("Wall"))
         {
             transform.parent.GetComponent<EnemyManager>().CustomCollisionEnter(other);
+        }
+        
+        if (other.gameObject.CompareTag("Bunker"))
+        {
+            _gm.GameOver();
         }
     }
 

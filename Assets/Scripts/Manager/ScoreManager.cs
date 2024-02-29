@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,16 +9,25 @@ namespace Manager
 {
     public class ScoreManager
     {
-        public int score;
+        private int highscore;
+        private string userName;
         private string fmt = "000000.##";
         private int maxHighscoreCount = 10;
-        public void BuildHighscore()
+        private GameObject userGameObject;
+        private GameObject scoreGameObject;
+
+        public void FillList(GameObject userList, GameObject scoreList)
         {
-            var userName = "Tom";
-            var userHighscore = score;
+            userGameObject = userList;
+            scoreGameObject = scoreList;
+        }
+        public void BuildHighscore(int score, string inputUsername)
+        {
+            userName = inputUsername;
+            highscore = score;
 
             var highscoreList = GetHighscoreList();
-            highscoreList = CheckHighscoreList(highscoreList, userHighscore, userName);
+            highscoreList = CheckHighscoreList(highscoreList, highscore, userName);
             SaveHighscore(highscoreList);
         }
 
@@ -50,23 +61,32 @@ namespace Manager
             return fillList;
         }
 
-        private List<HighscoreEntry> CheckHighscoreList(List<HighscoreEntry> entries, int newScore, string userName)
+        private List<HighscoreEntry> CheckHighscoreList(List<HighscoreEntry> entries, int newScore, string newUserName)
         {
-            for (int i = 0; i < entries.Count; i++)
+            var oldCount = entries.Count();
+            int highestCount = -1;
+            
+            var newEntry = new HighscoreEntry();
+            newEntry.Name = newUserName;
+            newEntry.Score = newScore;
+            
+            for (int i = 9; i >= 0; i--)
             {
                 if (entries[i].Score < newScore)
                 {
-                    var newEntry = new HighscoreEntry();
-                    newEntry.Name = userName;
-                    newEntry.Score = newScore;
-                    entries.Insert(i, newEntry);
+                    highestCount = i;
                 }
             }
 
+            if (highestCount != -1)
+            {
+                entries.Insert(highestCount, newEntry);
+            }
+            
             if (entries.Count > 10)
             {
                 var entriesToRemove = entries.Count - maxHighscoreCount;
-                entries.RemoveRange(11, entriesToRemove);
+                entries.RemoveRange(10, entriesToRemove);
             }
             
             return entries;
@@ -74,6 +94,15 @@ namespace Manager
 
         private void SaveHighscore(List<HighscoreEntry> entries)
         {
+            for (int i = 0; i < entries.Count(); i++)
+            {
+                var userText = userGameObject.GetComponentsInChildren<TMP_Text>();
+                userText[i].text = entries[i].Name;
+                var userScore = scoreGameObject.GetComponentsInChildren<TMP_Text>();
+                userScore[i].text = entries[i].Score.ToString();
+            }
+
+            
             for (int i = 0; i < maxHighscoreCount; i++)
             {
                 PlayerPrefs.SetString("Highscore" + i, entries[i].Name);

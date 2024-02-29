@@ -64,17 +64,25 @@ namespace Manager
         private List<HighscoreEntry> CheckHighscoreList(List<HighscoreEntry> entries, int newScore, string newUserName)
         {
             var oldCount = entries.Count();
-            for (int i = 0; i < oldCount; i++)
+            int highestCount = -1;
+            
+            var newEntry = new HighscoreEntry();
+            newEntry.Name = newUserName;
+            newEntry.Score = newScore;
+            
+            for (int i = 9; i >= 0; i--)
             {
-                if (entries[i].Score > newScore)
+                if (entries[i].Score < newScore)
                 {
-                    var newEntry = new HighscoreEntry();
-                    newEntry.Name = newUserName;
-                    newEntry.Score = newScore;
-                    entries.Insert(i, newEntry);
+                    highestCount = i;
                 }
             }
 
+            if (highestCount != -1)
+            {
+                entries.Insert(highestCount, newEntry);
+            }
+            
             if (entries.Count > 10)
             {
                 var entriesToRemove = entries.Count - maxHighscoreCount;

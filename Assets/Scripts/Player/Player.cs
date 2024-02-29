@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     [SerializeField] 
     private GameManager _gm;
 
+    [SerializeField] 
+    private SceneManager _sm;
     #endregion
 
     private PlayerControls _controls;
@@ -88,9 +90,14 @@ public class Player : MonoBehaviour
 
     void Fire()
     {
-        if (_gm.gameRunning == true)
+        if (_gm.gameRunning)
         {
             Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
+        }
+
+        if (_sm.isHighscoreShown)
+        {
+            _sm.BackToMenu();
         }
     }
 

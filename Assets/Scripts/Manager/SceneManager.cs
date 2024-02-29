@@ -26,6 +26,7 @@ namespace Manager
         [SerializeField] private GameObject ScoreList;
 
 
+        public bool isHighscoreShown;
         private ScoreManager _scoreManager;
         private string username;
         private string fmt = "000000.##";
@@ -33,6 +34,7 @@ namespace Manager
         private void Start()
         {
             _scoreManager = new ScoreManager();
+            isHighscoreShown = false;
             PauseMenu.SetActive(false);
             GameOverMenu.SetActive(false);
             HighscoreMenu.SetActive(false);
@@ -46,6 +48,7 @@ namespace Manager
         public void SetUserName(string input)
         {
             username = input;
+            Highscore();
         }
         public void GameOver(int userScore)
         {
@@ -59,8 +62,14 @@ namespace Manager
         {
             GameOverMenu.SetActive(false);
             HighscoreMenu.SetActive(true);
+            isHighscoreShown = true;
             _scoreManager.FillList(UserList, ScoreList);
             _scoreManager.BuildHighscore(score, username);
+        }
+
+        public void BackToMenu()
+        {
+            Debug.Log("Funkt");
         }
     }
 }

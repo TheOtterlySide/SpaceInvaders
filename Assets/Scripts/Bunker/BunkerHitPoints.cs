@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -25,12 +26,6 @@ namespace Bunker
             libAsset = lib.spriteLibraryAsset;
             mySpriteResolver = gameObject.GetComponent<SpriteResolver>();
             LifeHandling();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
         }
 
         private void LifeHandling()
@@ -71,7 +66,14 @@ namespace Bunker
                 hp--;
                 LifeHandling();
             }
-        
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                Dead();
+            }
         }
     }
 }

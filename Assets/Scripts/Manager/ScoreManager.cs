@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,14 @@ namespace Manager
         private string userName;
         private string fmt = "000000.##";
         private int maxHighscoreCount = 10;
+        private GameObject userGameObject;
+        private GameObject scoreGameObject;
+
+        public void FillList(GameObject userList, GameObject scoreList)
+        {
+            userGameObject = userList;
+            scoreGameObject = scoreList;
+        }
         public void BuildHighscore(int score, string inputUsername)
         {
             userName = inputUsername;
@@ -57,7 +66,7 @@ namespace Manager
             var oldCount = entries.Count();
             for (int i = 0; i < oldCount; i++)
             {
-                if (entries[i].Score < newScore)
+                if (entries[i].Score > newScore)
                 {
                     var newEntry = new HighscoreEntry();
                     newEntry.Name = newUserName;
@@ -72,12 +81,20 @@ namespace Manager
                 entries.RemoveRange(10, entriesToRemove);
             }
             
-            Debug.Log(entries.Count());
             return entries;
         }
 
         private void SaveHighscore(List<HighscoreEntry> entries)
         {
+            for (int i = 0; i < entries.Count(); i++)
+            {
+                var userText = userGameObject.GetComponentsInChildren<TMP_Text>();
+                userText[i].text = entries[i].Name;
+                var userScore = scoreGameObject.GetComponentsInChildren<TMP_Text>();
+                userScore[i].text = entries[i].Score.ToString();
+            }
+
+            
             for (int i = 0; i < maxHighscoreCount; i++)
             {
                 PlayerPrefs.SetString("Highscore" + i, entries[i].Name);

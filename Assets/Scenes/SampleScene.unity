@@ -172,6 +172,8 @@ MonoBehaviour:
   HighscoreMenu: {fileID: 34180857}
   GameOverScore: {fileID: 1742698084}
   UserNameInput: {fileID: 78655476}
+  UserList: {fileID: 1175430437}
+  ScoreList: {fileID: 1424183514}
 --- !u!1 &34180857
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &34180858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1015,7 +1017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &150256425
 RectTransform:
   m_ObjectHideFlags: 0

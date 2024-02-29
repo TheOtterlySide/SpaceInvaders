@@ -17,10 +17,13 @@ namespace Manager
         [SerializeField] private GameObject GameOverMenu;
         [SerializeField] private GameObject HighscoreMenu;
 
+
         #endregion
 
         [SerializeField] private TMP_Text GameOverScore;
         [SerializeField] private TMP_InputField UserNameInput;
+        [SerializeField] private GameObject UserList;
+        [SerializeField] private GameObject ScoreList;
 
 
         private ScoreManager _scoreManager;
@@ -56,6 +59,7 @@ namespace Manager
         {
             GameOverMenu.SetActive(false);
             HighscoreMenu.SetActive(true);
+            _scoreManager.FillList(UserList, ScoreList);
             _scoreManager.BuildHighscore(score, username);
         }
     }

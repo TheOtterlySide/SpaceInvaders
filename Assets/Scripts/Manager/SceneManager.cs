@@ -21,13 +21,15 @@ namespace Manager
 
         [SerializeField] private TMP_Text GameOverScore;
         [SerializeField] private TMP_InputField UserNameInput;
-        
-        
+
+
+        private ScoreManager _scoreManager;
         private string username;
         private string fmt = "000000.##";
-        private int Score;
+        private int score;
         private void Start()
         {
+            _scoreManager = new ScoreManager();
             PauseMenu.SetActive(false);
             GameOverMenu.SetActive(false);
             HighscoreMenu.SetActive(false);
@@ -41,18 +43,20 @@ namespace Manager
         public void SetUserName(string input)
         {
             username = input;
-            Debug.Log(input);
         }
-        public void GameOver(bool status, int score)
+        public void GameOver(int userScore)
         {
             GameOverScore.text = score.ToString(fmt);
-            GameOverMenu.SetActive(status);
+            score = userScore;
+            UserNameInput.Select();
+            GameOverMenu.SetActive(true);
         }
 
-        public void Highscore(bool status)
+        public void Highscore()
         {
             GameOverMenu.SetActive(false);
-            HighscoreMenu.SetActive(status);
+            HighscoreMenu.SetActive(true);
+            _scoreManager.BuildHighscore(score, username);
         }
     }
 }

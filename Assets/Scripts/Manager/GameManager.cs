@@ -43,7 +43,6 @@ namespace Manager
         #endregion
 
         #region Manager
-        private ScoreManager _scoreManager;
         [SerializeField]
         private SceneManager sceneManager;
         #endregion
@@ -51,7 +50,6 @@ namespace Manager
         // Start is called before the first frame update
         private void Start()
         {
-            _scoreManager = new ScoreManager();
             stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
             score = 000000;
             SetupWalls();
@@ -120,8 +118,7 @@ namespace Manager
         {
             //Pause Game, Open End Scene, Show Highscores
             Time.timeScale = 0.0f;
-            _scoreManager.BuildHighscore(score);
-            sceneManager.GameOver(true, score);
+            sceneManager.GameOver(score);
         }
         
         public void Pause()
@@ -140,12 +137,5 @@ namespace Manager
                 gameRunning = !gameRunning;
             }
         }
-
-        private void StopTheGame()
-        {
-            
-        }
-
- 
     }
 }

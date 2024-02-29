@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,11 +9,12 @@ namespace Manager
     public class ScoreManager
     {
         private int highscore;
+        private string userName;
         private string fmt = "000000.##";
         private int maxHighscoreCount = 10;
-        public void BuildHighscore(int score)
+        public void BuildHighscore(int score, string inputUsername)
         {
-            var userName = "Tom";
+            userName = inputUsername;
             highscore = score;
 
             var highscoreList = GetHighscoreList();
@@ -50,14 +52,15 @@ namespace Manager
             return fillList;
         }
 
-        private List<HighscoreEntry> CheckHighscoreList(List<HighscoreEntry> entries, int newScore, string userName)
+        private List<HighscoreEntry> CheckHighscoreList(List<HighscoreEntry> entries, int newScore, string newUserName)
         {
-            for (int i = 0; i < entries.Count; i++)
+            var oldCount = entries.Count();
+            for (int i = 0; i < oldCount; i++)
             {
                 if (entries[i].Score < newScore)
                 {
                     var newEntry = new HighscoreEntry();
-                    newEntry.Name = userName;
+                    newEntry.Name = newUserName;
                     newEntry.Score = newScore;
                     entries.Insert(i, newEntry);
                 }
@@ -66,9 +69,10 @@ namespace Manager
             if (entries.Count > 10)
             {
                 var entriesToRemove = entries.Count - maxHighscoreCount;
-                entries.RemoveRange(11, entriesToRemove);
+                entries.RemoveRange(10, entriesToRemove);
             }
             
+            Debug.Log(entries.Count());
             return entries;
         }
 

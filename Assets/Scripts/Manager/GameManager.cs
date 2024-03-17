@@ -66,8 +66,8 @@ namespace Manager
 
         void SetPosition()
         {
-            player.transform.position = new Vector3(0, -stageDimensions.y + 1.5f, 0);
-            defense.transform.position = new Vector3(-stageDimensions.x + 7f, -stageDimensions.y + 5f, 0);
+            player.transform.position = new Vector3(1, -stageDimensions.y + 1.5f, 0);
+            defense.transform.position = new Vector3(7, -stageDimensions.y + 6f, 0);
         }
 
         void StartGame()

@@ -161,7 +161,7 @@ namespace Manager
                     for (int j = 0; j < columnCount; j++)
                     {
                         var invader = (GameObject)Instantiate(enemyPrefab, transform.position, transform.rotation);
-                        invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite;
+                        // invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite;
                         invader.name = j.ToString();
                         invader.transform.position = currentPos;
                         invader.transform.SetParent(gameObject.transform);

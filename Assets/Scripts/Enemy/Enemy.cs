@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public int points;
-    public Sprite sprite;
     public int rowCount;
     private Rigidbody2D _rb;
     [SerializeField]
@@ -16,11 +15,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] 
     private Vector2 bulletPos;
     private GameManager _gm;
+    [SerializeField] private Animator Animator;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Animator.SetBool("Death", false);
     }
 
     // Update is called once per frame
@@ -33,9 +34,10 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.CompareTag("PlayerBullet"))
         {
+            Animator.SetBool("Death", true);
             transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
             _gm.score += points;
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

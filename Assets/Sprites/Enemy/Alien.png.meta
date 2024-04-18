@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2f3d3910b1614732a5f3c6d491a8904
+guid: 2022c1b60fe29472faeb77a1c962ff2e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -110,547 +110,421 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerDeath
+      name: Alien_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 132
-        width: 60
-        height: 60
+        x: 0
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 673cdfa3f088e4e8dbed814a46f5f18d
-      internalID: 696330084
+      spriteID: 9df139405388141248be1ba303ebe9a6
+      internalID: -98334252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath1
+      name: Alien_1
       rect:
         serializedVersion: 2
-        x: 69
-        y: 132
-        width: 60
-        height: 60
+        x: 66
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdc10cec3c20946b28fcb0946df4468c
-      internalID: -903707396
+      spriteID: 1c5beeb5a1d964f81b07f398edbc238b
+      internalID: -1614472884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath2
+      name: Alien_2
       rect:
         serializedVersion: 2
-        x: 135
-        y: 132
-        width: 60
-        height: 57
+        x: 132
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c785ddba539cb452cbe95d313383b9b3
-      internalID: -1835930378
+      spriteID: 76e677d96c7cd4f3881a972dd9b19fd2
+      internalID: -720960512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath3
+      name: Alien_3
       rect:
         serializedVersion: 2
-        x: 201
-        y: 132
-        width: 60
-        height: 57
+        x: 198
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a197669e6cf4c56b9c513d737ef9e3
-      internalID: -548948661
+      spriteID: b56705c0c36684b6fb589fd180153dd8
+      internalID: 1744380816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath4
+      name: Alien_4
       rect:
         serializedVersion: 2
-        x: 267
-        y: 132
-        width: 60
-        height: 51
+        x: 264
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 428956e82fc6a4db693f50366c6f7391
-      internalID: -516369698
+      spriteID: cf6133d56288d4c14bff2af1986e9846
+      internalID: -1663210281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath5
+      name: Alien_5
       rect:
         serializedVersion: 2
-        x: 333
-        y: 132
-        width: 60
-        height: 51
+        x: 330
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a2e606b16e2545f591d8b2739111ed7
-      internalID: 499097683
+      spriteID: b0c83f94a6e3246ef9f651b2335e591b
+      internalID: -687060715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath6
+      name: Alien_6
       rect:
         serializedVersion: 2
-        x: 399
-        y: 132
-        width: 60
-        height: 51
+        x: 396
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25f1b31fc92b544618498f842392e65b
-      internalID: 1412060929
+      spriteID: f5259abd1b3684dbe95492642b021896
+      internalID: 1570467366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath7
+      name: Alien_7
       rect:
         serializedVersion: 2
-        x: 465
-        y: 132
-        width: 60
-        height: 51
+        x: 462
+        y: 68
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 974169def44f14584983584658110daa
-      internalID: 1500303995
+      spriteID: cedd09e20609b482e9d5f1ba481c6be0
+      internalID: 905755470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath8
+      name: Alien_8
       rect:
         serializedVersion: 2
-        x: 531
-        y: 132
-        width: 60
-        height: 32
+        x: 0
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc09533621e234b0fa0259c0c2f31550
-      internalID: -343684311
+      spriteID: 388cc01ff40804de3b81bb14cf3cd18f
+      internalID: 1699358403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath9
+      name: Alien_9
       rect:
         serializedVersion: 2
-        x: 597
-        y: 132
-        width: 60
-        height: 32
+        x: 66
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aeb293db18ba4f8a82df021315118c5
-      internalID: 1875928957
+      spriteID: c9ca3c24b3e7943d5a2e63d5e62d0a74
+      internalID: 1258077976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath10
+      name: Alien_10
       rect:
         serializedVersion: 2
-        x: 664
-        y: 132
-        width: 58
-        height: 23
+        x: 132
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd09f7bfa148b4c23815d8efcffaf582
-      internalID: -533867419
+      spriteID: df17e96a021604e2283e4c22e8fe62d7
+      internalID: -596256779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath11
+      name: Alien_11
       rect:
         serializedVersion: 2
-        x: 730
-        y: 132
-        width: 58
-        height: 23
+        x: 198
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae63d72191536497dbcc2b79ed1de72d
-      internalID: 7733828
+      spriteID: 4b400dbb181bd4714ac98d4c63c03d40
+      internalID: -286312393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerDeath12
+      name: Alien_12
       rect:
         serializedVersion: 2
-        x: 802
-        y: 132
-        width: 49
-        height: 23
+        x: 264
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550cb317ed49b410aa9345d307fcef8c
-      internalID: -807098587
+      spriteID: 8ccafbe9b25194ffc9747be6b73496b1
+      internalID: -215928828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLeftDrive
+      name: Alien_13
       rect:
         serializedVersion: 2
-        x: 3
-        y: 66
-        width: 60
-        height: 60
+        x: 330
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b346a44f7be1d42259f827f247e913fb
-      internalID: 1725984621
+      spriteID: 5ee965db5ca15481fb20e6f55c5c702d
+      internalID: -1954451094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLeftDrive2
+      name: Alien_14
       rect:
         serializedVersion: 2
-        x: 69
-        y: 66
-        width: 60
-        height: 60
+        x: 396
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a5e355416aa84c948df1cc79869c6a6
-      internalID: -1958201130
+      spriteID: 3de7ad2decbb84352ae32e5242cee8fe
+      internalID: -79021185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLeftDrive3
+      name: Alien_15
       rect:
         serializedVersion: 2
-        x: 135
-        y: 66
-        width: 60
-        height: 60
+        x: 462
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4bc9635b407b4d89afae142b1580aa1
-      internalID: 820602603
+      spriteID: 55acc580595b24e16adbc1196634846e
+      internalID: 687397580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLeftDrive4
+      name: Alien_16
       rect:
         serializedVersion: 2
-        x: 201
-        y: 66
-        width: 60
-        height: 60
+        x: 528
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a291788062014c3fb8261beb020c65b
-      internalID: -1180948355
+      spriteID: 6ae5ef38a33ae444aa62f99105a2ebc6
+      internalID: -1935783098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerLeftDrive5
+      name: Alien_17
       rect:
         serializedVersion: 2
-        x: 268
-        y: 66
-        width: 60
-        height: 60
+        x: 594
+        y: 3
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ceb5564faa164228b9be8c45b99e99c
-      internalID: -1420886550
+      spriteID: c548c5df81b17455da6ae18066eb8b6f
+      internalID: -1153632237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerRightDrive
+      name: Alien_18
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 60
-        height: 60
+        x: 662
+        y: 2
+        width: 65
+        height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a858e9d87223745c580586e42c66172a
-      internalID: 494454102
+      spriteID: 6a1ead0f614764aab8ccbd0430c34963
+      internalID: -1843191820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerRightDrive1
+      name: Alien_19
       rect:
         serializedVersion: 2
-        x: 69
-        y: 0
-        width: 60
-        height: 60
+        x: 736
+        y: 2
+        width: 56
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f7a9894e35d4c11ba4070682b8d1e7
-      internalID: -1633666047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerRightDrive2
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 0
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 746a575d598ad454ab38f493ab5297de
-      internalID: -1844845146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerRightDrive3
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 0
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81db0b572f7234c9681b70570c51e7ed
-      internalID: -1922324684
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerRightDrive4
-      rect:
-        serializedVersion: 2
-        x: 267
-        y: 0
-        width: 60
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 802cc3080161d488cb918d6e7a5487ea
-      internalID: 74092787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDeath13
-      rect:
-        serializedVersion: 2
-        x: 868
-        y: 132
-        width: 49
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 958b0b4f52efd48ee80f9e226beb322f
-      internalID: -1283727776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDeath14
-      rect:
-        serializedVersion: 2
-        x: 931
-        y: 133
-        width: 37
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9ec510618d12437aa2a4b4e285da7f5
-      internalID: -1647938491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerDeath15
-      rect:
-        serializedVersion: 2
-        x: 986
-        y: 133
-        width: 40
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1552bd36549414684a0ab658e4a5ae1f
-      internalID: 1352288738
+      spriteID: 77e2190c6bea043c7aa06102305a187f
+      internalID: 1593237797
       vertices: []
       indices: 
       edges: []
@@ -666,42 +540,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerDeath: 696330084
-      PlayerDeath1: -903707396
-      PlayerDeath10: -533867419
-      PlayerDeath11: 7733828
-      PlayerDeath12: -807098587
-      PlayerDeath13: -1283727776
-      PlayerDeath14: -1647938491
-      PlayerDeath15: 1352288738
-      PlayerDeath2: -1835930378
-      PlayerDeath3: -548948661
-      PlayerDeath4: -516369698
-      PlayerDeath5: 499097683
-      PlayerDeath6: 1412060929
-      PlayerDeath7: 1500303995
-      PlayerDeath8: -343684311
-      PlayerDeath9: 1875928957
-      PlayerLeftDrive: 1725984621
-      PlayerLeftDrive2: -1958201130
-      PlayerLeftDrive3: 820602603
-      PlayerLeftDrive4: -1180948355
-      PlayerLeftDrive5: -1420886550
-      PlayerRightDrive: 494454102
-      PlayerRightDrive1: -1633666047
-      PlayerRightDrive2: -1844845146
-      PlayerRightDrive3: -1922324684
-      PlayerRightDrive4: 74092787
-      PlayerSpriteSheet_12: -1847058610
-      PlayerSpriteSheet_13: 1758733763
-      PlayerSpriteSheet_14: -430054140
-      PlayerSpriteSheet_15: 535181770
-      PlayerSpriteSheet_16: 1288313891
-      PlayerSpriteSheet_17: -320973136
-      PlayerSpriteSheet_18: -1617196521
-      PlayerSpriteSheet_20: -1898621901
-      PlayerSpriteSheet_22: -711087931
-      PlayerSpriteSheet_9: -1690809236
+      Alien_0: -98334252
+      Alien_1: -1614472884
+      Alien_10: -596256779
+      Alien_11: -286312393
+      Alien_12: -215928828
+      Alien_13: -1954451094
+      Alien_14: -79021185
+      Alien_15: 687397580
+      Alien_16: -1935783098
+      Alien_17: -1153632237
+      Alien_18: -1843191820
+      Alien_19: 1593237797
+      Alien_2: -720960512
+      Alien_3: 1744380816
+      Alien_4: -1663210281
+      Alien_5: -687060715
+      Alien_6: 1570467366
+      Alien_7: 905755470
+      Alien_8: 1699358403
+      Alien_9: 1258077976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

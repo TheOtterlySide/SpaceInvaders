@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Manager;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class Player : MonoBehaviour
 {
@@ -55,7 +56,8 @@ public class Player : MonoBehaviour
 
     private PlayerControls _controls;
     private Rigidbody2D _rb;
-    
+
+    [SerializeField] private Animator AnimationControl;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
         _controls.Player.Move.performed += moving => { playerPos.x = moving.ReadValue<float>(); };
         _controls.Player.Pause.performed += _ => Pause();
         _controls.Player.Fire.performed += _ => Fire();
+        AnimationControl.SetBool("PlayerAlive", true);
     }
 
     // Update is called once per frame
@@ -86,6 +89,17 @@ public class Player : MonoBehaviour
     void UpdatePosition()
     {
         _rb.velocity = Vector2.Lerp(_rb.velocity, playerPos * speed, lerpSpeed * Time.deltaTime);
+
+        if (_rb.velocity.x > 0)
+        {
+            //Driving to the right side
+            AnimationControl.SetInteger("Direction", 1);
+        }
+        else
+        {
+            //Driving to the left side
+            AnimationControl.SetInteger("Direction", -1);
+        }
     }
 
     void Fire()
@@ -110,6 +124,7 @@ public class Player : MonoBehaviour
             //GameOver
             playerLife = 0;
             playerAlive = false;
+            AnimationControl.SetBool("PlayerAlive", false);
         }
     }
 

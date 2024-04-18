@@ -3381,6 +3381,7 @@ MonoBehaviour:
   playerAlive: 1
   _gm: {fileID: 419341042}
   _sm: {fileID: 2185802}
+  AnimationControl: {fileID: 1032799394}
 --- !u!114 &1032799391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,22 +3484,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!111 &1032799394
-Animation:
+--- !u!95 &1032799394
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032799387}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b67453cb64c2b4267ba3b2e8afc3777a, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: b67453cb64c2b4267ba3b2e8afc3777a, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dae752626355d4839ae2460897fc2f76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1043591658
 GameObject:
   m_ObjectHideFlags: 0

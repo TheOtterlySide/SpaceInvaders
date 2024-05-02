@@ -4080,10 +4080,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 5
-  sprite: {fileID: 0}
   rowCount: 0
   bulletPrefab: {fileID: 0}
   bulletPos: {x: 0, y: 0}
+  Animator: {fileID: 0}
 --- !u!1 &1128176731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,7 +4556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358ffe67a48c40d0b0b631413aaccf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1222185827802612240, guid: bf7c5ec4e3c044c378a6fa3bf408bd0a, type: 3}
+  enemyPrefabAlien: {fileID: 1222185827802612240, guid: bf7c5ec4e3c044c378a6fa3bf408bd0a, type: 3}
+  enemyPrefabBrain: {fileID: 1222185827802612240, guid: d83e35245a2ab4b21bbf65640a2cc7ed, type: 3}
+  enemyPrefabSquid: {fileID: 1222185827802612240, guid: 946d279a35c7e47689650ef7de87a86b, type: 3}
   mobsKilled1: 40
   speedAddition1: 1
   mobsKilled2: 20

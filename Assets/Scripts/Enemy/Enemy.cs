@@ -34,10 +34,9 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.CompareTag("PlayerBullet"))
         {
-            Animator.SetBool("Death", true);
+            Animator.SetTrigger("Death");
             transform.parent.GetComponent<EnemyManager>().DeleteAlienFromList(gameObject);
             _gm.score += points;
-            // Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -65,5 +64,10 @@ public class Enemy : MonoBehaviour
         var position = transform.position;
         bulletPos = new Vector2(position.x, position.y - 0.5f);
         Instantiate(bulletPrefab,bulletPos, transform.rotation);
+    }
+
+    public void DestroyGameobject()
+    {
+        Destroy(gameObject);
     }
 }

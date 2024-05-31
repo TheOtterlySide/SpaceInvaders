@@ -69,7 +69,7 @@ namespace Manager
 
         public void BackToMenu()
         {
-            Debug.Log("Funkt");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
         }
     }
 }

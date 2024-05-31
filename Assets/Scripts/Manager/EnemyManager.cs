@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,7 +17,11 @@ namespace Manager
         #region Mobs
 
         [SerializeField]
-        private GameObject enemyPrefab;
+        private GameObject enemyPrefabAlien;
+        [SerializeField]
+        private GameObject enemyPrefabBrain;        
+        [SerializeField]
+        private GameObject enemyPrefabSquid;
 
         [SerializeField] 
         private int mobsKilled1;
@@ -156,13 +161,30 @@ namespace Manager
             foreach (var enemyType in enemies)
             {
                 var invaderName = enemyType.name.Trim();
+                var prefab = new GameObject();
+
+                switch (invaderName)
+                {
+                    case string a when a.Contains("Alien"):
+                        prefab = enemyPrefabAlien;
+                        break;
+                    case string b when b.Contains("Brain"):
+                        prefab = enemyPrefabBrain;
+                        break;
+                    case string c when c.Contains("Squid"):
+                        prefab = enemyPrefabSquid;
+                        break;
+                    default:
+                        break;
+                }
+                
                 for (int i = 0, len = enemyType.rowCount; i < len; i++)
                 {
                     for (int j = 0; j < columnCount; j++)
                     {
-                        var invader = (GameObject)Instantiate(enemyPrefab, transform.position, transform.rotation);
-                        invader.AddComponent<SpriteRenderer>().sprite = enemyType.sprite;
-                        invader.name = j.ToString();
+                        
+                        var invader = (GameObject)Instantiate(prefab, transform.position, transform.rotation);
+                        invader.name = invaderName + j.ToString();
                         invader.transform.position = currentPos;
                         invader.transform.SetParent(gameObject.transform);
                         aliens.Add(invader);
@@ -237,6 +259,11 @@ namespace Manager
             if (aliens.Count == mobsKilled2)
             {
                 speed += speedAddition2;
+            }
+
+            if (aliens.Count <= 0)
+            {
+                Start();
             }
         }
 

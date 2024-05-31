@@ -91,17 +91,14 @@ namespace Manager
         {
             switch (player.playerLife)
             {
-                case 3:
+                case 2:
                     playerLife3.SetActive(false);
                     break;
-                case 2:
+                case 1:
                     playerLife2.SetActive(false);
                     break;
-                case 1:
-                    playerLife1.SetActive(false);
-                    break;
                 case 0:
-                    gameRunning = false;
+                    playerLife1.SetActive(false);
                     GameOver();
                     break;
                 default:
@@ -117,6 +114,7 @@ namespace Manager
         public void GameOver()
         {
             Time.timeScale = 0.0f;
+            gameRunning = false;
             sceneManager.GameOver(score);
         }
         

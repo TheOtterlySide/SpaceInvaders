@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5307800210608995334}
   - component: {fileID: 5147805297860658825}
   - component: {fileID: 7038842136806755325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: m_Alien
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.85333335, y: 0.85333335}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

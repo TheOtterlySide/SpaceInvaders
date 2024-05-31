@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2429701393857717233}
   - component: {fileID: 8426907193440071908}
   - component: {fileID: -2825296548438200131}
+  - component: {fileID: -6183232811398183587}
   m_Layer: 3
   m_Name: m_Ufo
   m_TagString: Bonus
@@ -57,7 +58,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -138,8 +139,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0.027406693, a: 1}
+  m_Sprite: {fileID: -28153430, guid: dd6ecbe1704084bf088c45eddd302eb4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,4 +162,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64c9224a79ad4f6989f11e029f1bf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTime: 5
+  deathTime: 6
+  points: 20
+  Animator: {fileID: -6183232811398183587}
+--- !u!95 &-6183232811398183587
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222185827802612240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe2a5b91e184e4011a5304888f8b3eac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

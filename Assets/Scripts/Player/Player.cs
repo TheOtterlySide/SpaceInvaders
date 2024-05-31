@@ -5,6 +5,7 @@ using Manager;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor.Animations;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -47,22 +48,22 @@ public class Player : MonoBehaviour
 
     public bool playerAlive;
     
-    [SerializeField] 
-    private GameManager _gm;
+    [FormerlySerializedAs("_gm")] [SerializeField] 
+    private GameManager _gameManager;
 
-    [SerializeField] 
-    private SceneManager _sm;
+    [FormerlySerializedAs("_sm")] [SerializeField] 
+    private SceneManager _sceneManager;
     #endregion
 
     private PlayerControls _controls;
-    private Rigidbody2D _rb;
+    private Rigidbody2D _rigidbody2D;
 
     [SerializeField] private Animator AnimationControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         playerPosX = 0;
         playerPosY = 0;
         playerPos = new Vector2(playerPosX, playerPosY);
@@ -83,14 +84,17 @@ public class Player : MonoBehaviour
 
     void Pause()
     {
-        _gm.Pause();
+        if (_gameManager.gameRunning)
+        {
+            _gameManager.Pause();
+        }
     }
 
     void UpdatePosition()
     {
-        _rb.velocity = Vector2.Lerp(_rb.velocity, playerPos * speed, lerpSpeed * Time.deltaTime);
+        _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, playerPos * speed, lerpSpeed * Time.deltaTime);
 
-        if (_rb.velocity.x > 0)
+        if (_rigidbody2D.velocity.x > 0)
         {
             //Driving to the right side
             AnimationControl.SetInteger("Direction", 1);
@@ -104,14 +108,14 @@ public class Player : MonoBehaviour
 
     void Fire()
     {
-        if (_gm.gameRunning)
+        if (_gameManager.gameRunning)
         {
             Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
         }
 
-        if (_sm.isHighscoreShown)
+        if (_sceneManager.isHighscoreShown)
         {
-            _sm.BackToMenu();
+            _sceneManager.BackToMenu();
         }
     }
 
@@ -140,7 +144,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            _rb.velocity = Vector2.zero;
+            _rigidbody2D.velocity = Vector2.zero;
         }
     }
 }

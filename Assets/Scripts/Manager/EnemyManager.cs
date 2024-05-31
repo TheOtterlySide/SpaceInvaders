@@ -260,6 +260,11 @@ namespace Manager
             {
                 speed += speedAddition2;
             }
+
+            if (aliens.Count <= 0)
+            {
+                Start();
+            }
         }
 
         void Fire()

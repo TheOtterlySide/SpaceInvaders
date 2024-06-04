@@ -3,6 +3,10 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{5F19BB8C-C445-4E33-92F2-EC46A0E643E6}">
 			<PropertyList>
+				<Property Name="Event Action List\{7224CC9D-99CE-4E5C-A01F-EEF1CCF08ED9}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{CC615C03-2A86-412B-9A52-74AC884D122D}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{DEE14A4A-8BF1-4C32-AF2F-6E4214170865}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{E0A1C026-C72A-4E9C-AF8E-EA1A94101DEB}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
@@ -15,6 +19,10 @@
 						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 					</ValueList>
 				</Property>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="Bn8GVwCCA0SP9n1YJgHE+Q=="/>
+				<Property Name="Interactive Music\x64_{589FFF26-4DA0-471F-9CF7-5846E8AB1D89} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwPwAAAAAAmGhAAAAAAAAA8D8AAAAAwI/fQAAAAAAAAAAA"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>

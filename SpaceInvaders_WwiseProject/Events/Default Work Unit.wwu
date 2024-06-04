@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{9A58BB65-35D2-4034-88B7-9672A1D99177}" SchemaVersion="119">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{9A58BB65-35D2-4034-88B7-9672A1D99177}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{9A58BB65-35D2-4034-88B7-9672A1D99177}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play" ID="{DEE14A4A-8BF1-4C32-AF2F-6E4214170865}">
+					<ChildrenList>
+						<Action Name="" ID="{B56CBD7E-0AB7-41EA-96C1-70E2E1D7F831}" ShortID="856496918">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Background" ID="{589FFF26-4DA0-471F-9CF7-5846E8AB1D89}" WorkUnitID="{73E2FC9F-9B57-45F9-AA59-CF650E18026C}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Pause" ID="{E0A1C026-C72A-4E9C-AF8E-EA1A94101DEB}">
+					<ChildrenList>
+						<Action Name="" ID="{A060FF46-3920-4036-967E-805B60F1CC6E}" ShortID="1000364657">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="8"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Resume" ID="{CC615C03-2A86-412B-9A52-74AC884D122D}">
+					<ChildrenList>
+						<Action Name="" ID="{9B46CDC5-07CB-41D2-9A45-4774B4BDBF9E}" ShortID="300052324">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="10"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop" ID="{7224CC9D-99CE-4E5C-A01F-EEF1CCF08ED9}">
+					<ChildrenList>
+						<Action Name="" ID="{1FEA5E83-7B91-4036-A3B6-F98CE3A2EF30}" ShortID="785719505">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

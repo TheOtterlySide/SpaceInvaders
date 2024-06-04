@@ -84,10 +84,7 @@ public class Player : MonoBehaviour
 
     void Pause()
     {
-        if (_gameManager.gameRunning)
-        {
             _gameManager.Pause();
-        }
     }
 
     void UpdatePosition()

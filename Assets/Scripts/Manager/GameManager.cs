@@ -45,16 +45,31 @@ namespace Manager
         #region Manager
         [SerializeField]
         private SceneManager sceneManager;
+        [SerializeField] private AudioManager audioManager;
         #endregion
-        
+
+
+        private bool firstStart = true;
         // Start is called before the first frame update
         private void Start()
+        {
+            Setup();
+        }
+
+        private void Setup()
         {
             stageDimensions = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
             score = 000000;
             SetupWalls();
             SetPosition();
             StartGame();
+
+            if (firstStart)
+            {
+                audioManager.Start();
+            }
+
+            firstStart = false;
         }
 
         // Update is called once per frame
@@ -115,6 +130,7 @@ namespace Manager
         {
             Time.timeScale = 0.0f;
             gameRunning = false;
+            audioManager.Stop();
             sceneManager.GameOver(score);
         }
         
@@ -125,6 +141,7 @@ namespace Manager
                 Time.timeScale = 0.0f;
                 sceneManager.Pause(true);
                 gameRunning = !gameRunning;
+                audioManager.Pause();
             }
 
             else
@@ -132,6 +149,7 @@ namespace Manager
                 Time.timeScale = 1.0f;
                 sceneManager.Pause(false);
                 gameRunning = !gameRunning;
+                audioManager.Resume();
             }
         }
     }

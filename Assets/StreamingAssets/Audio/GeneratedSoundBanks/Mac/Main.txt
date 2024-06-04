@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	788884573	Stop			\Default Work Unit\Stop	
+	953277036	Resume			\Default Work Unit\Resume	
+	1256202815	Play			\Default Work Unit\Play	
+	3092587493	Pause			\Default Work Unit\Pause	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	185149906	Track	Y:\Developing\GAMEDEV\SpaceInvaders\SpaceInvaders_WwiseProject\.cache\Mac\SFX\City Lights_276006824 - DOS-88_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Background\Track		30302492
+

@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Manager;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEditor.Animations;
 using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
@@ -51,8 +46,8 @@ public class Player : MonoBehaviour
     [FormerlySerializedAs("_gm")] [SerializeField] 
     private GameManager _gameManager;
 
-    [FormerlySerializedAs("_sm")] [SerializeField] 
-    private SceneManager _sceneManager;
+    [FormerlySerializedAs("_sceneManager")] [FormerlySerializedAs("_sm")] [SerializeField] 
+    private SceneCustomManager sceneCustomManager;
     #endregion
 
     private PlayerControls _controls;
@@ -110,9 +105,9 @@ public class Player : MonoBehaviour
             Instantiate(bulletPrefab, bulletPos.transform.position, transform.rotation);
         }
 
-        if (_sceneManager.isHighscoreShown)
+        if (sceneCustomManager.isHighscoreShown)
         {
-            _sceneManager.BackToMenu();
+            sceneCustomManager.BackToMenu();
         }
     }
 

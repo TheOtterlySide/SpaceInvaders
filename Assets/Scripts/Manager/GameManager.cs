@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Manager
 {
@@ -43,8 +44,8 @@ namespace Manager
         #endregion
 
         #region Manager
-        [SerializeField]
-        private SceneManager sceneManager;
+        [FormerlySerializedAs("sceneManager")] [SerializeField]
+        private SceneCustomManager sceneCustomManager;
         [SerializeField] private AudioManager audioManager;
         #endregion
 
@@ -131,7 +132,7 @@ namespace Manager
             Time.timeScale = 0.0f;
             gameRunning = false;
             audioManager.Stop();
-            sceneManager.GameOver(score);
+            sceneCustomManager.GameOver(score);
         }
         
         public void Pause()
@@ -139,7 +140,7 @@ namespace Manager
             if (gameRunning)
             {
                 Time.timeScale = 0.0f;
-                sceneManager.Pause(true);
+                sceneCustomManager.Pause(true);
                 gameRunning = !gameRunning;
                 audioManager.Pause();
             }
@@ -147,7 +148,7 @@ namespace Manager
             else
             {
                 Time.timeScale = 1.0f;
-                sceneManager.Pause(false);
+                sceneCustomManager.Pause(false);
                 gameRunning = !gameRunning;
                 audioManager.Resume();
             }
